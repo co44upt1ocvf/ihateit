@@ -12,7 +12,7 @@ contract Control {
     event NewBalance(address user, uint256 amount);
     
     function accountStatus() public payable {
-        require(msg.value > 0, "Value must be greater than 0");
+        require(msg.value > 0, unicode"Введите значение больше 0");
         
         bool userExists = false;
         for (uint i = 0; i < users.length; i++) {
@@ -40,11 +40,11 @@ contract Control {
     }
     
     function removal(uint256 amount) public {
-        require(amount > 0, "Amount must be greater than 0");
+        require(amount > 0, unicode"Введите значение больше 0");
         
         for (uint i = 0; i < users.length; i++) {
             if (users[i].userAddress == msg.sender) {
-                require(users[i].balance >= amount, "Insufficient balance");
+                require(users[i].balance >= amount, unicode"Вы бомж :)");
                 payable(msg.sender).transfer(amount);
                 users[i].balance -= amount;
                 break;
