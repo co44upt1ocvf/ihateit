@@ -31,12 +31,7 @@ contract Control {
     }
     
     function getBalance(address user) public view returns(uint256) {
-        for (uint i = 0; i < users.length; i++) {
-            if (users[i].userAddress == user) {
-                return users[i].balance;
-            }
-        }
-        return 0; // User not found
+        return user.balance;
     }
     
     function removal(uint256 amount) public {
